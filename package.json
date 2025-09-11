@@ -11,5 +11,13 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^5.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shatakshi-Shukla-Github/CRUD-App.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Shatakshi-Shukla-Github/CRUD-App/issues"
+  },
+  "homepage": "https://github.com/Shatakshi-Shukla-Github/CRUD-App#readme"
 }
