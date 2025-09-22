@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const methodOverride = require('method-override')
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(methodOverride('_method'))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 const { v4: uuid } = require('uuid');
@@ -50,6 +52,12 @@ app.patch('/comments/:id', (req, res) => {
     const foundComment = comments.find(c => c.id === id);
     foundComment.comment = newCommentText;
     res.redirect('/comments');
+})
+//EDIT Functionality
+app.get('/comments/:id/edit', (req, res) => {
+    const { id } = req.params; //since id is a string therefore we use curly braces
+    const comment = comments.find(c => c.id === id);
+    res.render('comments/edit', { comment });
 })
 // app.get('/tacos', (req, res) => {
 //     res.send("GET /tacos response");
